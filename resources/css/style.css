@@ -1,0 +1,648 @@
+/* colors:
+orange : #e67e22; 
+dareker_orange : #cf6d17 ; 
+blue : #ff0000  ; 
+gray = #f4f4ff ;
+----------------------------------------------------------------------------------------------------------*/
+/* global style s  */
+*{
+    margin: 0 ; 
+    padding: 0 ; 
+    -webkit-box-sizing: border-box; 
+            box-sizing: border-box; 
+}
+*:focus { 
+    outline: none ; 
+}
+html , body{ 
+    background-color: #ffffff ; 
+    overflow-x: hidden;
+    color: #555555 ; 
+    font-family: "Lato" , Arial , sans-serif; 
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility ; 
+}
+
+
+h1{ 
+    margin: 0 ; /*this one is for overwriting the margin rule of the normalize.css*/
+}
+/* ========================================================================================================
+                                            reusable rules
+=========================================================================================================*/
+/* animations on scroll */
+.js-animation-on-scroll { 
+    opacity: 0;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+}
+
+.animated.js-animation-on-scroll {
+    opacity: 1;
+}
+
+#js-animation-on-scroll-pulse { 
+    -webkit-animation-duration: 1s; 
+            animation-duration: 1s;
+}
+/* grid system */
+div.row{ 
+    max-width: 1140px ; 
+    margin: 0 auto; 
+}
+
+/* button */
+.btn:link,
+.btn:visited,
+input[type = submit] { 
+    display: inline-block ; 
+    padding: 10px 30px; 
+    font-weight: 300px; 
+    text-decoration: none ;
+    border-radius: 200px;  
+    -webkit-transition: background-color 0.2s , border 0.2s , color 0.2s ;  
+    transition: background-color 0.2s , border 0.2s , color 0.2s ; 
+}
+
+.btn-full:link , 
+.btn-full:visited , 
+input[type=submit]{ 
+    background-color: #e67e22 ;
+    border: 2px solid #e67e22  ;
+    color:white; 
+    margin-right:15px;
+}
+
+.btn-ghost:link , 
+.btn-ghost:visited {
+    border: 2px solid #e67e22  ;
+    color:#e67e22;  
+}
+
+.btn:hover , 
+.btn:active , 
+input[type = submit]:hover {
+    background-color: #cf6d17; 
+    cursor: pointer;
+}
+
+.btn-full:hover , 
+.btn-full:active , 
+input[type=submit]:hover{ 
+    border: 2px solid #cf6d17 ;
+}
+
+.btn-ghost:hover, 
+.btn-ghost:active {
+    border: 2px solid #cf6d17  ;
+    color:white;  
+    
+}
+/*   headings  */
+
+h1, 
+h2,
+h3 {
+    font-weight: 300;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+h1 {
+    margin-bottom: 20px;
+    word-spacing: 4px;
+    font-size: 240% ;
+    color: #ffffff; 
+}
+
+h2 {
+    font-size: 180%; 
+    word-spacing: 2px;
+    text-align: center ;
+    margin-bottom: 30px;
+}
+/* underline bottom side */
+h2::after {
+    content: ""; 
+    display: block;
+    height: 2px; 
+    width: 100px;
+    background-color: #e67e22; 
+    margin:0px auto ; 
+
+    margin-top: 30px;
+}
+
+h3{ 
+    font-size: 110%;
+    margin-bottom: 15px ; 
+}
+
+/* section and containers and boxes*/
+section {
+    padding: 80px 0;
+}
+
+.box {
+    padding: 1% ; 
+}
+
+
+/* paragraphs */
+p.long-copy { 
+    line-height: 145%;
+    width: 70% ; 
+    margin-left: 15%;
+}
+
+/* icons */
+.icon-big{ 
+    font-size: 350% ; 
+    display: block;
+    color: #cf6d17 ; 
+    margin-bottom: 10px;
+}
+
+.icon-small {
+    font-size: 120%;
+    color: #e67e22;  
+    margin-right: 10px;
+    /* align icons in a cloumn with each other */
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+
+    /* align icon with text */
+    line-height: 120%;
+    vertical-align: middle; 
+}
+/* claer fix */
+.clear-fix::after{
+    content: "" ; 
+    clear: both ; 
+    display: table ; 
+}
+
+/* links */
+a {
+    border-bottom: 1px solid #e67e22;
+    color: #e67e22; 
+    text-decoration: none;
+    padding-bottom: 1px;
+    -webkit-transition: border-bottom 0.2s , color 0.2s;
+    transition: border-bottom 0.2s , color 0.2s; 
+}
+
+a:hover{ 
+    color: #cf6d17 ; 
+    border-bottom: 1px solid transparent;
+}
+/* blockquote */
+blockquote {
+    position: relative;
+    padding: 2%; 
+    font-style: italic ;    
+    line-height: 145% ; 
+    margin-top: 40px; 
+}
+
+cite { 
+    font-size: 90% ; 
+    margin-top: 25px;
+    display: block;
+}
+
+/*==========================================================================================================                                                   Header
+========================================================================================================= */
+
+/* hero and header styles */
+
+header{
+    background-image: -webkit-gradient(linear , left top, left bottom , from(rgba(0, 0, 0, 0.7)) , to(rgba(0, 0, 0, 0.7))), url("../img/hero.jpg") ;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7) , rgba(0, 0, 0, 0.7)), url("../img/hero.jpg") ; 
+    background-size: cover ;
+    background-position: center ; 
+    height: 100vh;
+    background-attachment: fixed ; 
+}
+
+.hero-text-box{
+    position: absolute;
+    width: 1140px; 
+    top: 50%; 
+    left: 50% ; 
+    -webkit-transform: translate(-50% , -50%); 
+            transform: translate(-50% , -50%); 
+}
+
+.logo{ 
+    height: 100px;
+    width: auto;
+    float: left; 
+    margin-top: 20px;
+}
+
+
+.main-nav { 
+    float: right ; 
+    list-style: none;
+    margin-top: 55px;
+}
+
+
+.main-nav li{ 
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main-nav li a:link , 
+.main-nav li a:visited{
+    color: white; 
+    text-decoration: none; 
+    text-transform: uppercase;
+    font-size: 90% ; 
+    border-bottom: 2px solid transparent ; 
+    -webkit-transition: border-bottom 0.2s; 
+    transition: border-bottom 0.2s; 
+    padding: 8px 0px; 
+}
+
+.main-nav li a:hover , 
+.main-nav li a:active {
+    border-bottom: 2px solid #e67e22 ;
+    cursor: pointer;
+}
+
+/* making sticky nav */
+
+.sticky-nav {
+    position: fixed;
+    top: 0; 
+    left: 0 ; 
+    width: 100vw;
+    background-color: rgba(255 , 255 , 255 , 0.98) ; 
+    -webkit-box-shadow: 0 2px 2px #f0f0f0 ; 
+            box-shadow: 0 2px 2px #f0f0f0 ;
+    z-index: 99999; /*big number because it must be in top of all elements*/
+}
+
+.sticky-nav .main-nav li a:link , 
+.sticky-nav .main-nav li a:visited { 
+    color: #555555; 
+    padding: 15px 0 ; 
+}
+
+.sticky-nav .main-nav{
+    margin-top: 18px; 
+}
+ 
+.logo-black { 
+    /* this is logo black default settings for all the times */
+    display: none ; 
+    height: 50px; 
+    width: auto;
+    float: left;
+    margin: 5px 0;
+} 
+.sticky-nav .logo-black {
+    /* for the time that logo black is placed in a nav with sticky-nav class */
+    display: block;
+} 
+.sticky-nav .logo { 
+    /* for the time that logo is placed in a nav with sticky-nav class */
+    display: none; 
+}
+
+/* responsive nav */
+/* .main-nav {
+    display: none;
+} */
+.mobile-nav-icon { 
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.mobile-nav-icon i { 
+    font-size: 200%; 
+    color: white ; 
+    display: none;
+}
+/* ======================================================================================================
+                                                Feautres
+========================================================================================================= */
+.box p{ 
+    font-size: 90% ; 
+    line-height: 145%; 
+}
+
+.features p.long-copy { 
+    margin-bottom: 30px;
+}
+/* =======================================================================================================
+                                            Favourite Meals
+========================================================================================================= */
+.favourite-meals {
+    padding: 0;
+}
+.meals-showcase {
+    list-style: none; 
+    width: 100%; 
+}
+
+.meals-showcase li { 
+    display: block;
+    float: left;
+    width: 25%; 
+}
+
+.meals-photo{ 
+    width: 100%;
+    margin: 0; 
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+.meals-photo img{ 
+    width: 100%;
+    height: auto;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    -webkit-transition: opacity 0.5s , -webkit-transform 0.5s;
+    transition: opacity 0.5s , -webkit-transform 0.5s;
+    transition: transform 0.5s , opacity 0.5s;
+    transition: transform 0.5s , opacity 0.5s , -webkit-transform 0.5s;  
+    opacity: 0.7;
+}
+
+.meals-photo img:hover{ 
+    -webkit-transform: scale(1.03); 
+            transform: scale(1.03);
+    opacity: 1;
+}
+
+
+/*======================================================================================================= 
+                                            How It Works
+=========================================================================================================*/
+.steps {
+    background-color: #f4f4f4;
+}
+
+.steps-box {
+    margin-top: 30px;
+}
+
+
+.steps-box:first-child {
+    text-align: right;
+    padding-right: 3%;
+}
+
+.steps-box:last-child {
+    text-align: left;
+    padding-left: 3%;
+    margin-top: 70px;
+}
+
+.app-screen {
+    width: 40%;
+}
+
+.works-step {
+    margin-bottom: 50px;
+}
+
+.works-step:last-of-type {
+    margin-bottom: 80px;
+}
+
+.works-step div {
+    color: #e67e22;
+    font-size: 150%;
+    height: 54px;
+    width: 54px;
+    border: 2px solid #e67e22;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    margin-right: 25px;
+    float: left;
+    padding: 5px;
+}
+
+.btn-app:link,
+.btn-app:visited {
+    border: 0;
+}
+
+.btn-app img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+
+/* ===================================================================================================== 
+                                                cities 
+=======================================================================================================*/
+.box img{ 
+    width: 100%; 
+    height: auto; 
+}
+
+section.cities .box h3 { 
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/*========================================================================================================= 
+                                                testimonials
+===========================================================================================================*/
+.testimonials { 
+    background-image: radial-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(img/back-customers.jpg);
+    background-size: cover ; 
+    color: white; 
+    background-attachment: fixed ; 
+
+}
+
+cite img.client { 
+    height: 45px; 
+    border-radius: 50% ; 
+    margin-right: 10px;
+    vertical-align: middle; 
+}
+
+blockquote::before { 
+    content:  '\201c' ; 
+    font-size: 400% ; 
+    display: block ; 
+    position: absolute ; 
+    top: -5px; 
+    left: -5px; 
+}
+
+/*=============================================================================================================
+                                                  plans
+===============================================================================================================*/
+.plans { 
+    background-color: #f4f4f4 ;  
+}
+
+.plan-box { 
+    background-color: white ; 
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5% ; 
+    -webkit-box-shadow:  0 2px 2px #efefef ; 
+            box-shadow:  0 2px 2px #efefef ; 
+}
+
+.plan-box div { 
+    padding: 15px;
+    border: 1px solid  #e8e8e8; 
+}
+
+.plan-price{ 
+    font-size: 300% ; 
+    margin-bottom: 10px;
+    font-weight: 100 ; 
+    color: #e67e22;  
+}
+
+.plan-price-meal { 
+    font-size: 80% ; 
+}
+
+.plan-price span, 
+.plan-price-meal span { 
+    font-size: 30% ;
+    font-weight: 300 ; 
+}
+
+.plan-box ul { 
+    list-style: none ; 
+}
+
+.plan-box ul li { 
+    margin : 5px 0 ; 
+}
+.plan-box div:first-child { 
+    background-color: #fcfcfc ;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.plan-box div:last-child { 
+    text-align: center;
+    border: 0; 
+}
+/*==========================================================================================================================
+                                                            forms 
+============================================================================================================================*/
+.contact-form { 
+    width: 60% ; 
+    margin : 0 auto; 
+}
+
+.contact-form input[type=text] ,
+.contact-form input[type=email] , 
+.contact-form select ,
+.contact-form textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc; 
+}
+
+.contact-form textarea { 
+    height: 100px;
+}
+
+input[type=checkbox] { 
+    margin: 10px 5px 10px 0;
+}
+/*=========================================================================================================================
+                                                            footer
+=========================================================================================================================== */
+footer {
+    background-color: #333333;
+    padding: 50px;
+    font-size: 80%;
+}
+
+footer .footer-nav{ 
+    list-style: none;
+    float: left;
+}
+
+footer .social-links { 
+    list-style: none;
+    float: right;
+}
+
+.footer-nav li , .social-links li { 
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li a {
+    color: white;
+    text-decoration: none;
+}
+
+.social-links li:last-child { 
+    margin-right: 0; 
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited{ 
+    border: 0;
+    text-decoration: none;
+    color: #888888;
+    -webkit-transition: color 0.2s ;
+    transition: color 0.2s ;
+}
+
+.social-links li a:link ,
+.social-links li a:visited {
+    font-size: 160%;
+}
+
+.social-links li:nth-child(1) a:hover { 
+/* facebook */
+    color: #3b5998;
+}
+
+.social-links li:nth-child(2) a:hover { 
+/* twitter */
+    color: #00aced;
+}
+
+.social-links li:nth-child(3) a:hover { 
+/* google plus */
+    color: #dd4b39;
+}
+
+.social-links li:nth-child(4) a:hover { 
+/* instagram */
+    color:#517fa4 ;
+}
+
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+footer p {
+ }   color: #888888;
+    text-align: center;
+    margin-top: 20px; 
+}
