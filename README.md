@@ -1,2 +1,3 @@
 # omniFood
-this is omnifood project from "Build realWorld websites"
+this is omnifood project from "Build real world websites" course
+
